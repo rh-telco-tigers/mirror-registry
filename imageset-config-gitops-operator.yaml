@@ -1,0 +1,20 @@
+kind: ImageSetConfiguration
+apiVersion: mirror.openshift.io/v1alpha2
+storageConfig:
+  registry:
+    imageURL: kvm3.home.lab:8443/ocp416
+    skipTLS: false   
+mirror:
+  platform:
+    channels:
+    - name: stable-4.16
+      type: ocp
+  operators:
+  operators:
+  - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.16
+    packages:
+    - name: openshift-gitops-operator
+  additionalImages:
+  - name: registry.redhat.io/ubi8/ubi:latest
+  - name: registry.redhat.io/rhel8/support-tools:latest
+  helm: {}

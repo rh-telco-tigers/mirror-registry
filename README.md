@@ -4,7 +4,7 @@ Mirroring OpenShift images from the internet to a local disconnected environment
 
 This approach offers several advantages. It allows for a faster and more efficient installation process, as the images are readily available in the local environment. This eliminates the need to download the images from the internet during installation, which can be time-consuming and prone to interruptions in disconnected networks.
 
-** Steps to follow **
+**Steps to follow**
 
 1. Download the mirror-registry.tar.gz package for the latest version of the mirror registry for Red Hat OpenShift found on the OpenShift console Downloads page under Openshift disconnected installation tools
 
@@ -39,7 +39,7 @@ This approach offers several advantages. It allows for a faster and more efficie
         cp -v $HOME/.docker/config.json ~/pull-secret.json
         ```
 
-** Create the imageset-config.yaml ***
+**Create the imageset-config.yaml**
 
 1. To create a default imageset-config.yaml run the following command
     a. oc-mirror init --registry <mirror-registry.hostname>:8443/ocp| tee imageset-config.yaml
@@ -66,7 +66,7 @@ This approach offers several advantages. It allows for a faster and more efficie
       helm: {}
     ```
 
-** Some examples for imageset-config.yaml **
+**Some examples for imageset-config.yaml**
 
 1. imageset config with few sets of operators and two versions of ocp
 https://raw.githubusercontent.com/rh-telco-tigers/mirror-registry/refs/heads/main/imageset-config-with-operator-helm.yaml
@@ -77,7 +77,7 @@ https://raw.githubusercontent.com/rh-telco-tigers/mirror-registry/refs/heads/mai
 3. imageset config with just one operator
 https://raw.githubusercontent.com/rh-telco-tigers/mirror-registry/refs/heads/main/imageset-config-gitops-operator.yaml
 
-** Run the oc-mirror command **
+**Run the oc-mirror command**
 
 Once you have created your imageset-config file now it is time to start the mirroring process. Run the following command to start the process
 ```

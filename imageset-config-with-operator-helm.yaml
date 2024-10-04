@@ -1,0 +1,71 @@
+kind: ImageSetConfiguration
+apiVersion: mirror.openshift.io/v1alpha2
+storageConfig:
+  registry:
+    imageURL: mirror.home.lab:8443/ocp
+    skipTLS: false   
+mirror:
+  platform:
+    channels:
+    - name: stable-4.15
+      minVersion: 4.15.28
+      maxVersion: 4.15.34
+    - name: stable-4.16
+      minVersion: 4.16.0
+      maxVersion: 4.16.12    
+      type: ocp
+    graph: true    
+  operators:
+  operators:
+  - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.15
+    packages:
+    - name: advanced-cluster-management
+    - name: lvms-operator
+    - name: multicluster-engine
+    - name: multicluster-global-hub-operator-rh
+    - name: odf-operator
+    - name: openshift-gitops-operator
+    - name: cincinnati-operator
+    - name: topology-aware-lifecycle-manager
+    - name: sriov-network-operator
+    - name: local-storage-operator
+    - name: metallb-operator
+    - name: kubernetes-nmstate-operator
+    - name: kubevirt-hyperconverged
+    - name: servicemeshoperator
+    - name: elasticsearch-operator
+    - name: cluster-logging
+    - name: kiali-ossm
+    - name: jaeger-product
+    - name: web-terminal
+    - name: tempo-product    
+  - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.16
+    packages:
+    - name: advanced-cluster-management
+    - name: lvms-operator
+    - name: multicluster-engine
+    - name: multicluster-global-hub-operator-rh
+    - name: odf-operator
+    - name: openshift-gitops-operator
+    - name: cincinnati-operator
+    - name: topology-aware-lifecycle-manager
+    - name: sriov-network-operator
+    - name: local-storage-operator
+    - name: metallb-operator
+    - name: kubernetes-nmstate-operator
+    - name: kubevirt-hyperconverged
+    - name: servicemeshoperator
+    - name: elasticsearch-operator
+    - name: cluster-logging
+    - name: kiali-ossm
+    - name: jaeger-product
+    - name: web-terminal
+    - name: tempo-product  
+  additionalImages:
+  - name: registry.redhat.io/ubi8/ubi:latest
+  - name: registry.redhat.io/rhel8/support-tools:latest
+  - name: registry.redhat.io/openshift4/ztp-site-generate-rhel8:v4.16
+  helm:
+    repositories:
+      - name: democratic-csi
+        url: https://democratic-csi.github.io/charts/
